@@ -39,20 +39,20 @@ console.log(optionEl)
 
 // when the next Button is clicked
 nextBtn.addEventListener("click",nextQst)
-let fact;
+let quiz;
 let completedGuess = 0;
 let correctGuess = 0;
 // getting the nex question
 
 function nextQst(){
-fact = questionData.shift();
+quiz = questionData.shift();
 
-// document.querySelector(".question-header").textContent = fact.question;
-console.log(fact);
-// console.log(document.getElementById("question-frame").innerHTML)
-// document.getElementById("question-frame").innerHTML = createOptionField();
-// document.createElement("section").appendChild(createOptionField())
-getRadioElements(fact.correctAnswer)
+
+// console.log(optionEl.children.length)
+removeANodeList(optionEl.children);
+// document.querySelector(".question-header").textContent = quiz.question;
+console.log(quiz);
+getRadioElements(quiz.correctAnswer)
 createOptionField()
 
 enable(nextBtn)
@@ -86,19 +86,20 @@ document.getElementById("completed").innerText  = completedGuess;
 
 
 
+// create multichoice questions options
 function createOptionField(){
  let wrapperDiv;
  let sectionEl = document.createElement("section");
  let heaaderDiv = document.createElement("div");
- heaaderDiv.textContent = `${fact.question}`;
+ heaaderDiv.textContent = `${quiz.question}`;
  heaaderDiv.className = 'question-header';
  sectionEl.appendChild(heaaderDiv)
 
- for(let optionField of getMutlipleChoices(3,fact.correctAnswer,fact.possibleAnswers)){
+ for(let optionField of getMutlipleChoices(3,quiz.correctAnswer,quiz.possibleAnswers)){
  console.log(optionField)
  wrapperDiv = `
  <div class="question-container">
- <input class="radio" type='radio' id="${optionField}" value ="${optionField}" name="${fact.name}"/>
+ <input class="radio" type='radio' id="${optionField}" value ="${optionField}" name="${quiz.name}"/>
  <label class='label-class' for="${optionField}"> ${optionField} </label>
  </div>
  `
@@ -107,8 +108,10 @@ function createOptionField(){
 return optionEl.appendChild(sectionEl);
 }
 
-
-// const choice1 = getMutlipleChoices(3,questionData[0].correctAnswer,questionData[0].possibleAnswers);
-// console.log(choice1)
+//remove a node after the next button has been fired
+function removeANodeList(nodelist){
+if(nodelist.length > 0){
+optionEl.removeChild(nodelist[0])
+}
 
 nextQst();
