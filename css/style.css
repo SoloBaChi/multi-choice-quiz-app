@@ -1,1 +1,42 @@
 @import url("boilerplate.css");
+
+html{
+	box-sizing:border-box;
+	}
+	*,
+	*::before,
+	*::after{
+	 box-sizing:inherit;
+	 padding:0;
+	 margin:0;
+	}
+	 #next-btn{
+	  text-transform:capitalize;
+	  cursor:pointer;
+	  position:absolute;
+	  bottom:1rem;
+	  right:1rem;
+	 }
+	 .question-frame{
+	  border:1px solid red;
+	  height:100vh;
+	  position:relative;
+	  padding:1rem;
+	 }
+	 .label-class,
+	 .question-header
+	 {
+	 text-transform:capitalize;
+	 }
+	 .question-container{
+	  margin:0.4rem;
+	 }
+	 .top-info{
+	 margin-bottom:2rem;
+	 }
+	 .top-info>*{
+	 margin-bottom:1rem;
+	 }
+	 .top-info>*:not(:first-child){
+	 font-size:0.85rem;
+	 }
