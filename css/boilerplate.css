@@ -18,3 +18,14 @@ padding:1rem;
 font-family:sans-serif;
 background:#ccc;
 }
+img{
+width:100%;
+display:inline-block;
+}
+.img-container{
+width:80px;
+min-height:40px;
+margin:0 auto;
+text-align:center;
+border:0px solid red;
+}

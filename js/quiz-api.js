@@ -58,15 +58,15 @@ const quizApi = [
 },
 {
  "id":9,
- "question":"how states are in northern nigeria ?",
-  "possibleAnswers":['24','21','15',"17",'28','29','','9'],
+ "question":"how many states are in northern nigeria ?",
+  "possibleAnswers":['24','21','15',"17",'28','29','30','9'],
   "correctAnswer":"19",
   "name":"quiz"
 },
 {
  "id":10,
  "question":"how states are in southern nigeria ?",
-  "possibleAnswers":['24','21','15','28','29','','9'],
+  "possibleAnswers":['24','21','15','28','29','23','9'],
   "correctAnswer":"17",
   "name":"quiz"
 }
