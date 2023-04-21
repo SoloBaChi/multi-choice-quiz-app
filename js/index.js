@@ -59,10 +59,36 @@ enable(nextBtn)
 }
 
 async function getRadioElements(correctAnswer){
-const radioBoxes = await document.getElementsByClassName("radio");	
-for(let radio of radioBoxes){
+const qstnContainer = await document.getElementsByClassName("question-container");	
+for(let qstn of qstnContainer){
 
-radio.addEventListener("click",(e)=>{
+qstn.addEventListener("click",(e)=>{
+
+// const qstnContainer = document.querySelectorAll(".question-container")
+// console.log(qstnContainer)
+// for(qstn of qstnContainer){
+// if(e.target.id === qstnContainer.id){
+// qstn.classList.add("active-container")
+// }
+// }
+const activeClass =  document.querySelector(".active-container");
+qstn.classList.add("active-container");
+console.log(e.target)
+if(activeClass){
+activeClass.classList.remove("active-container")
+}
+
+
+
+
+if(e.target.nodeName !== 'INPUT'){
+return;
+}
+
+const radioBtn = document.querySelectorAll(".radio");
+for(let qstBtn of radioBtn){
+enable(qstBtn)
+}
 
 if(questionData.length > 0){
 disable(nextBtn);
@@ -71,7 +97,6 @@ else{
 nextBtn.innerText = 'no more questions';
 }
 if(e.target.value === correctAnswer){
-console.log("yes")
 //increment the score
 correctGuess ++;
 }
@@ -98,7 +123,7 @@ function createOptionField(){
  for(let optionField of getMutlipleChoices(3,quiz.correctAnswer,quiz.possibleAnswers)){
  console.log(optionField)
  wrapperDiv = `
- <div class="question-container">
+ <div class="question-container" id="${optionField}">
  <input class="radio" type='radio' id="${optionField}" value ="${optionField}" name="${quiz.name}"/>
  <label class='label-class' for="${optionField}"> ${optionField} </label>
  </div>
@@ -112,6 +137,7 @@ return optionEl.appendChild(sectionEl);
 function removeANodeList(nodelist){
 if(nodelist.length > 0){
 optionEl.removeChild(nodelist[0])
+}
 }
 
 nextQst();

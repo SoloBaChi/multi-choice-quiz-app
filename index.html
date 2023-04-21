@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<head lang="en-US">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
 	<title>multi-choice questions quiz app</title>
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 
-<figure class="question-frame" id="question-frame">
+<header class="question-frame" id="question-frame">
 <div class="top-info">
- <p>Question <span id="current-guess">0 </span>/<span id="completed"> 0</span></p>
+ <p class="score">Score <span id="current-guess">0 </span>/<span id="completed"> 0</span></p>
  <span>1 point (make each point count)</span>
 </div>
+</header>
+<main>
 <div class="options">
 	
 </div>
 <button id="next-btn">next question</button>
-</figure>
-
-
+</main>
+<script src="./js/quiz-api.js"></script>
+<script src="./js/index.js"></script>
 
 </body>
 </html>
