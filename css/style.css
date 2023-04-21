@@ -12,7 +12,7 @@
 	 }
 	 .question-frame{
 	  position:relative;
-	  width:50%;
+	  /*width:50%;*/
 	  margin:0.4rem auto 0.3rem;
       padding:1rem;
       border-radius:14px 14px 0px 0px;
@@ -26,8 +26,9 @@
 	 text-transform:capitalize;
 	 }
 	 .question-header{
-	  font-size:x-large;
+	  font-size:1.2rem;
 	  margin-bottom:1rem;
+	  font-weight:500;
 	 }
 	 .question-container{
 	  width:100%;
@@ -53,8 +54,8 @@
 	 font-size:0.85rem;
 	 }*/
 	 main{
-	  min-width:25rem;
-	  max-width:50%;
+	 /* min-width:25rem;
+	  max-width:50%;*/
 	  margin:0px auto;
 	  display:flex;
 	  flex-direction:column;
@@ -73,3 +74,17 @@
      display:block;
      }
      
+
+
+
+
+
+     /*=============================
+     Media Queries
+     =================================*/
+     @media(min-width:960px){
+     main,
+     .question-frame{
+     width:50%;
+     }
+     }

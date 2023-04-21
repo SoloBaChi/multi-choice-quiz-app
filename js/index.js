@@ -1,5 +1,5 @@
 const questionData = quizApi;
-console.log(questionData);
+// console.log(questionData);
 // initializing utility functions
 function getRandomElement(array){
 const i = Math.floor(Math.random() * array.length);
@@ -35,7 +35,7 @@ return shuffleArray(choiceQst)
 // declaring necessary variables
 const nextBtn = document.getElementById("next-btn");
 const optionEl = document.querySelector(".options");
-console.log(optionEl)
+// console.log(optionEl)
 
 // when the next Button is clicked
 nextBtn.addEventListener("click",nextQst)
@@ -51,7 +51,7 @@ quiz = questionData.shift();
 // console.log(optionEl.children.length)
 removeANodeList(optionEl.children);
 // document.querySelector(".question-header").textContent = quiz.question;
-console.log(quiz);
+// console.log(quiz);
 getRadioElements(quiz.correctAnswer)
 createOptionField()
 
@@ -73,7 +73,7 @@ qstn.addEventListener("click",(e)=>{
 // }
 const activeClass =  document.querySelector(".active-container");
 qstn.classList.add("active-container");
-console.log(e.target)
+// console.log(e.target)
 if(activeClass){
 activeClass.classList.remove("active-container")
 }
@@ -121,7 +121,7 @@ function createOptionField(){
  sectionEl.appendChild(heaaderDiv)
 
  for(let optionField of getMutlipleChoices(3,quiz.correctAnswer,quiz.possibleAnswers)){
- console.log(optionField)
+ // console.log(optionField)
  wrapperDiv = `
  <div class="question-container" id="${optionField}">
  <input class="radio" type='radio' id="${optionField}" value ="${optionField}" name="${quiz.name}"/>
