@@ -16,14 +16,14 @@ const quizApi = [
 },
 {
  "id":3,
- "question":"which is the nigeria state has 'light if the nation' as her slogan ?",
+ "question":"which is the nigeria state has 'light of the nation' as her slogan ?",
   "possibleAnswers":['enugu state','ebonyi state','anambra state',"imo state",'kaduna state','lagos state','jigawa state','benue state'],
   "correctAnswer":"anambra state",
   "name":"quiz"
 },
 {
  "id":4,
- "question":"what's is the largest moutain in the world ? ",
+ "question":"what's is the largest mountain in the world ? ",
   "possibleAnswers":['kilimanjaro','odogwu mountain','hilltop',"congo",'morocco mountain'],
   "correctAnswer":"moutain everest",
   "name":"quiz"
