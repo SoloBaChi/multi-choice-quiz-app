@@ -1,4 +1,6 @@
 const questionData = quizApi;
+const questionDataCopy = questionData.map((item,arr)=> arr);
+console.log(questionDataCopy)
 // console.log(questionData);
 // initializing utility functions
 function getRandomElement(array){
@@ -40,8 +42,7 @@ const optionEl = document.querySelector(".options");
 // when the next Button is clicked
 nextBtn.addEventListener("click",nextQst)
 let quiz;
-let completedGuess = 0;
-let correctGuess = 0;
+let currenQuestion = 0;
 // getting the nex question
 
 function nextQst(){
@@ -52,13 +53,14 @@ quiz = questionData.shift();
 removeANodeList(optionEl.children);
 // document.querySelector(".question-header").textContent = quiz.question;
 // console.log(quiz);
-getRadioElements(quiz.correctAnswer)
+getRadioElements(quiz,quiz.correctAnswer);
+
 createOptionField()
 
 enable(nextBtn)
 }
 
-async function getRadioElements(correctAnswer){
+async function getRadioElements(quiz,correctAnswer){
 const qstnContainer = await document.getElementsByClassName("question-container");	
 for(let qstn of qstnContainer){
 
@@ -78,16 +80,14 @@ if(activeClass){
 activeClass.classList.remove("active-container")
 }
 
-
-
-
 if(e.target.nodeName !== 'INPUT'){
 return;
 }
 
 const radioBtn = document.querySelectorAll(".radio");
 for(let qstBtn of radioBtn){
-enable(qstBtn)
+// enable(qstBtn)
+qstBtn.classList.add("active-radio")
 }
 
 if(questionData.length > 0){
@@ -98,15 +98,14 @@ nextBtn.innerText = 'no more questions';
 }
 if(e.target.value === correctAnswer){
 //increment the score
-correctGuess ++;
+// currenQuestion ++;
 }
-completedGuess++;
 
 })
 }
 
-document.getElementById("current-guess").innerText = correctGuess;
-document.getElementById("completed").innerText  = completedGuess;
+document.getElementById("current-question").innerText = quiz.id;
+document.getElementById("total-question").innerText  = questionDataCopy.length;
 }
 
 
@@ -115,17 +114,18 @@ document.getElementById("completed").innerText  = completedGuess;
 function createOptionField(){
  let wrapperDiv;
  let sectionEl = document.createElement("section");
- let heaaderDiv = document.createElement("div");
- heaaderDiv.textContent = `${quiz.question}`;
- heaaderDiv.className = 'question-header';
- sectionEl.appendChild(heaaderDiv)
+ let headerDiv = document.createElement("div");
+ headerDiv.textContent = `${quiz.question}`;
+ headerDiv.className = 'question-header';
+ sectionEl.appendChild(headerDiv);
+ let choicesArray = getMutlipleChoices(3,quiz.correctAnswer,quiz.possibleAnswers);
 
- for(let optionField of getMutlipleChoices(3,quiz.correctAnswer,quiz.possibleAnswers)){
+ for(let i=0; i< choicesArray.length;i++){
  // console.log(optionField)
  wrapperDiv = `
- <div class="question-container" id="${optionField}">
- <input class="radio" type='radio' id="${optionField}" value ="${optionField}" name="${quiz.name}"/>
- <label class='label-class' for="${optionField}"> ${optionField} </label>
+ <div class="question-container" id="${choicesArray[i]}">
+ <input class="radio" type='radio' id="${i}" value ="${choicesArray[i]}" name="${quiz.name}"/>
+ <label class='label-class' for="${i}"> ${choicesArray[i]} </label>
  </div>
  `
  sectionEl.insertAdjacentHTML("beforeend",wrapperDiv)
